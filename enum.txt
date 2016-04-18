@@ -1,0 +1,117 @@
+NSTimers
+
+UDID (show system information)
+
+
+/*
+*****enum*****
+Enumerators are a data type – the only different is that you create the data type. 
+https://blog.udemy.com/objective-c-enum/
+
+
+*****
+What are Enumerated Types in Objective C?
+
+An enumerator is a list of predefined variables. If you’re familiar with Objective C data types like int and double, you know that you can define variables to hold or return int and double values. Enumerators are also a data type – the only different is that you create the data type. With enumerators, you can create variables that will hold only a value found only in the enumerator. Enumerators are declared with the help of the “enum” keyword.
+
+
+*****
+Examples of the Enumerator Type
+
+So what is the use of an enumerator type? If you were designing a calendar app, for example, you could use an enumerator type to store the values of the 12 months:
+enum months {Jan, Feb, Mar, Apr, May, Jun, July, Aug, Sept, Oct, Nov, Dec};
+
+Here, we’ve created an enumerator type called “months”. It is a collection of 12 elements. If you create a new variable and declare it to be of the “months” type, it will have to take one of the 12 possible values:
+enum months {Jan, Feb, Mar, Apr, May, Jun, July, Aug, Sept, Oct, Nov, Dec};
+enum months currentMonth;
+currentMonth = June;
+
+Here, we created a variable called “currentMonth” and declared it to be of type “months”. Then, we assigned it a value “June”.
+
+
+*****
+Let’s write a final example program:
+enum weight {slim = 120, medium= 140, stocky = 160};
+enum weight currentWeight;
+int currentWeight = medium;
+NSLog (@"The Current Weight is %i pounds", currentWeight);
+
+Output:
+The Current Weight is 140 pounds.
+
+We created an enumerator that has 3 elements, and then we created a variable called “currentWeight” to store one of those elements. We declared it an “int” data type, used it to reference the “medium” element and then finally we printed the value of the variable- and we received the expected output of 140.
+
+The enumerator data type is very useful when you’re writing large programs. It improved readability and helps you avoid mistakes.
+*/
+
+****************************************************************
+
+
+
+/*
+*****typedef*****
+The Objective-C programming language provides a keyword called typedef, which you can use to give a type a new name.
+
+
+You can use typedef to give a name to user-defined data type as well. For example, you can use typedef with structure to define a new data type and then use that data type to define structure variables directly as follows:
+#import <Foundation/Foundation.h>
+
+typedef struct Books
+{
+   NSString *title;
+   NSString *author;
+   NSString *subject;
+   int book_id;
+} Book;
+ 
+int main( )
+{
+   Book book;
+   book.title = @"Objective-C Programming";
+   book.author = @"TutorialsPoint";
+   book.subject = @"Programming tutorial";
+   book.book_id = 100;
+   NSLog( @"Book title : %@\n", book.title);
+   NSLog( @"Book author : %@\n", book.author);
+   NSLog( @"Book subject : %@\n", book.subject);
+   NSLog( @"Book Id : %d\n", book.book_id);
+
+   return 0;
+}
+*/
+
+
+
+Enums (http://rypress.com/tutorials/objective-c/c-basics)
+
+The enum keyword is used to create an enumerated type, which is a collection of related constants. Like structs, it’s often convenient to typedef enumerated types with a descriptive name:
+
+typedef enum {
+    FORD,
+    HONDA,
+    NISSAN,
+    PORSCHE
+} CarModel;
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        CarModel myCar = NISSAN;
+        switch (myCar) {
+            case FORD:
+            case PORSCHE:
+                NSLog(@"You like Western cars?");
+                break;
+            case HONDA:
+            case NISSAN:
+                NSLog(@"You like Japanese cars?");
+                break;
+            default:
+                break;
+        }
+    }
+    return 0;
+}
+
+Since the myCar variable was declared with the CarModel type, it can only store the four enumerators defined by the enumerated type: FORD, HONDA, NISSAN, and PORSCHE. Defining these in an enumerated type is more reliable than representing the various CarModel’s with arbitrary strings, as it’s impervious to spelling errors (the compiler will let you know when you mistype one of the above enumerators).
+
+
